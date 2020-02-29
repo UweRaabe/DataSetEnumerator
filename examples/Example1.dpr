@@ -3,7 +3,7 @@ program Example1;
 uses
   Forms,
   Example1.Form in 'Example1.Form.pas' {Form1},
-  UR.DataSetHelper in '..\source\UR.DataSetHelper.pas';
+  urs.DataSetHelper in '..\source\urs.DataSetHelper.pas';
 
 {$R *.res}
 
