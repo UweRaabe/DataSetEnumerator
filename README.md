@@ -148,7 +148,7 @@ type
   end;
 ```
 
-The enumerator example for _TCustomer_ needs an instance of that class to work with.
+The enumerator example for _TCustomer_ needs an instance of that class to work with. Due to type inference we can omit the generic type here.
 
 ```Delphi
 var
@@ -162,7 +162,7 @@ begin
     MemOutput.Lines.Clear;
     Customer := TCustomer.Create;
     try
-      for Customer in QuCustomer.Records<TCustomer>(Customer) do begin
+      for Customer in QuCustomer.Records(Customer) do begin
         S := Format('%d: %s - %s %s', [Customer.CustNo, Customer.Company, Customer.Zip, Customer.City]);
         if Customer.Country <> 'US' then
           S := S + ' (' + Customer.Country + ')';
@@ -185,10 +185,10 @@ begin
   { Set LastInvoiceDate to current date/time }
   Customer := TCustomer.Create;
   try
-    QuCustomer.LoadInstanceFromCurrent<TCustomer>(Customer);
+    QuCustomer.LoadInstanceFromCurrent(Customer);
     Customer.LastInvoiceDate := Now;
     QuCustomer.Edit;
-    QuCustomer.StoreInstanceToCurrent<TCustomer>(Customer);
+    QuCustomer.StoreInstanceToCurrent(Customer);
     QuCustomer.Post;
   finally
     Customer.Free;
