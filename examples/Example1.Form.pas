@@ -40,7 +40,7 @@ uses
   System.Sysutils,
   Vcl.Dialogs,
   MidasLib,
-  uDataSetHelper;
+  urs.DataSetHelper;
 
 {$R *.dfm}
 
