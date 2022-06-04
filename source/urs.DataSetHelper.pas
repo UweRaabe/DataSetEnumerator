@@ -427,8 +427,14 @@ begin
 end;
 
 procedure TDataSetHelper.TDataSetRecord<T>.TFieldMapping.LoadFromField(var Target: T);
+var
+  val: TValue;
 begin
-  FRTTIField.SetValue(GetPointer(Target), TValue.FromVariant(FField.Value));
+  if FField.IsNull then
+    val := TValue.Empty
+  else
+    val := TValue.FromVariant(FField.Value);
+  FRTTIField.SetValue(GetPointer(Target), val);
 end;
 
 procedure TDataSetHelper.TDataSetRecord<T>.TFieldMapping.StoreToField(var Source: T);
@@ -449,8 +455,14 @@ begin
 end;
 
 procedure TDataSetHelper.TDataSetRecord<T>.TPropMapping.LoadFromField(var Target: T);
+var
+  val: TValue;
 begin
-  FRTTIProp.SetValue(GetPointer(Target), TValue.FromVariant(FField.Value));
+  if FField.IsNull then
+    val := TValue.Empty
+  else
+    val := TValue.FromVariant(FField.Value);
+  FRTTIProp.SetValue(GetPointer(Target), val);
 end;
 
 constructor TDataSetHelper.TRecordsInstance<T>.Create(ADataSet: TDataSet; AInstance: T);
