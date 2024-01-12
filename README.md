@@ -1,3 +1,6 @@
+# Note:
+The only unit is now part or _CmonLib_: https://github.com/UweRaabe/CmonLib. The latest version can be find over there while this repository will stay as is.
+
 # DataSetEnumerator
 TDataSet helper classes to simplify access to TDataSet fields and make TDataSet work with a for-in-loop.
 
